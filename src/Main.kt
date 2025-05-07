@@ -1,4 +1,6 @@
+import fifthLab.FifthLab
 import firstLab.FirstLab
+import thirdLab.ThirdLab
 import secondLab.SecondLab
 
 fun main() {
@@ -7,6 +9,8 @@ fun main() {
         println("Введите номер лабораторной: ")
         println("lab1")
         println("lab2")
+        println("lab3")
+        println("lab5")
 
         menuChoice = readlnOrNull()?.toInt() ?: 0
 
@@ -19,6 +23,12 @@ fun main() {
             }
             2 -> {
                 launchSecondLab()
+            }
+            3 ->{
+                launchThirdLab()
+            }
+            5->{
+                launchFifthLab()
             }
         }
     }
@@ -40,4 +50,38 @@ private fun launchSecondLab(){
         println(error.message)
     }
 }
+
+private fun launchThirdLab(){
+    println("Введите последовательность")
+    val sequence = readlnOrNull() ?: ""
+    val fourth = ThirdLab(sequence)
+
+    try{
+        fourth.displayResult()
+    } catch (error: Exception){
+        println(error.message)
+    }
+}
+
+private fun launchFifthLab(){
+    println("Введите количество выживших серых мышей")
+    val K = readlnOrNull() ?: ""
+    println("Введите количество выживших белых мышей")
+    val L = readlnOrNull() ?: ""
+    println("Введите общее количество серых мышей")
+    val N = readlnOrNull() ?: ""
+    println("Введите общее количество белых мышей")
+    val M = readlnOrNull() ?: ""
+    println("Введите позицию круга, с которой кошка поедает мышей")
+    val S = readlnOrNull() ?: ""
+
+    val fifth = FifthLab(K.toInt(), L.toInt(), N.toInt(), M.toInt(), S.toInt())
+
+    try{
+        fifth.displayResult()
+    } catch (error: Exception){
+        println(error.message)
+    }
+}
+
 
