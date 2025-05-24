@@ -1,7 +1,13 @@
+import eighthLab.EighthLab
 import fifthLab.FifthLab
 import firstLab.FirstLab
+import fourthLab.FourthLab
 import thirdLab.ThirdLab
 import secondLab.SecondLab
+import seventhLab.SeventhLab
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.util.PriorityQueue
 
 fun main() {
     var menuChoice: Int
@@ -11,6 +17,7 @@ fun main() {
         println("lab2")
         println("lab3")
         println("lab5")
+        println("lab8")
 
         menuChoice = readlnOrNull()?.toInt() ?: 0
 
@@ -27,8 +34,17 @@ fun main() {
             3 ->{
                 launchThirdLab()
             }
+            4 ->{
+                launchFourthLab()
+            }
             5->{
                 launchFifthLab()
+            }
+            7 ->{
+                launchSeventhLab()
+            }
+            8->{
+                launchEighthLab()
             }
         }
     }
@@ -54,10 +70,10 @@ private fun launchSecondLab(){
 private fun launchThirdLab(){
     println("Введите последовательность")
     val sequence = readlnOrNull() ?: ""
-    val fourth = ThirdLab(sequence)
+    val third = ThirdLab(sequence)
 
     try{
-        fourth.displayResult()
+        third.displayResult()
     } catch (error: Exception){
         println(error.message)
     }
@@ -82,6 +98,30 @@ private fun launchFifthLab(){
     } catch (error: Exception){
         println(error.message)
     }
+}
+
+private fun launchFourthLab(){
+
+}
+
+private fun launchEighthLab(){
+    println("Введите строку")
+    val I: String = readlnOrNull() ?: ""
+    val fifth = EighthLab(I)
+    fifth.displayResult()
+}
+
+private fun launchSeventhLab(){
+    val br = BufferedReader(InputStreamReader(System.`in`))
+    println("Введите количество множеств")
+    val n = br.readLine().toInt()
+    println("Введите значение множеств")
+    val lists = List(n) {
+        br.readLine().split(' ').map { it.toLong() }
+    }
+
+    val seventh = SeventhLab(lists)
+    seventh.displayResult()
 }
 
 
